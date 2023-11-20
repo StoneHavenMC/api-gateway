@@ -1,0 +1,7 @@
+eureka:
+  client:
+    service-url:
+      defaultZone : http://service-registry:8761/eureka/
+services:
+  authentication:
+    url: http://authentication-service:8080
