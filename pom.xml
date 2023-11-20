@@ -93,6 +93,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <finalName>application</finalName>
                     <image>
                         <builder>paketobuildpacks/builder-jammy-base:latest</builder>
                     </image>
@@ -106,5 +107,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-grayroot</id>
+            <url>https://nexus.grayroot.eu/repository/maven-snapshots/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
