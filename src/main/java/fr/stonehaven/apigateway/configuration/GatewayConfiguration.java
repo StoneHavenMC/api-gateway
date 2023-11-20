@@ -12,6 +12,7 @@ public class GatewayConfiguration {
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http.csrf(ServerHttpSecurity.CsrfSpec::disable);
+        http.cors(ServerHttpSecurity.CorsSpec::disable);
         return http.build();
     }
 
