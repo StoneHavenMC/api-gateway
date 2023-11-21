@@ -3,17 +3,26 @@ spring:
     name: api-gateway
   profiles:
     active: prod
+
   cloud:
     gateway:
       globalcors:
+        add-to-simple-url-handler-mapping: true
         corsConfigurations:
           '[/**]':
-            allowedOrigins:
-              - "http://127.0.0.1:3000"
-              - "http://localhost:3000"
+            allowedOrigins: "*"
+            allowedHeaders:
+              - "Origin"
+              - "Content-Type"
+              - "Accept"
+              - "Authorization"
+              - "Referer"
             allowedMethods:
               - GET
               - POST
               - PUT
               - DELETE
               - PATCH
+              - OPTIONS
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_FIRST
