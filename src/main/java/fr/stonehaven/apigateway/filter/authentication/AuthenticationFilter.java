@@ -1,9 +1,9 @@
 package fr.stonehaven.apigateway.filter.authentication;
 
 import com.google.gson.Gson;
+import fr.stonehaven.apigateway.api.response.user.UserResponse;
 import fr.stonehaven.apigateway.configuration.RouteValidator;
 import fr.stonehaven.apigateway.exception.AccessForbiddenException;
-import fr.stonehaven.authentication.api.response.user.UserResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
