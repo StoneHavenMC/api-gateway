@@ -31,4 +31,4 @@ spring:
             - Path=/farmrun/item/**
           filters:
             - AuthenticationFilter
-            - RewritePath=/farmrun/item/(?<path>.*), /item/$\{path}
+            - RewritePath=/farmrun/item/(?<path>.*), /$\{path}
