@@ -24,7 +24,7 @@ spring:
             - Path=/farmrun/player/**
           filters:
             - AuthenticationFilter
-            - RewritePath=/farmrun/player/(?<path>.*), /player/$\{path}
+            - RewritePath=/farmrun/player/(?<path>.*), /$\{path}
 
         - id: farmrun-item-service
           uri: http://localhost:8083
