@@ -39,5 +39,5 @@ jobs:
       - name: Push the Docker image to Github registry
         run: |
           docker login --username grayr0ot --password ${{secrets.GHCR_PASSWORD}} ghcr.io
-          docker build . --tag ghcr.io/grayr0ot/sh-api-gateway:latest
-          docker push ghcr.io/grayr0ot/sh-api-gateway:latest
+          docker build . --tag ghcr.io/grayr0ot/sh-api-gateway:prod
+          docker push ghcr.io/grayr0ot/sh-api-gateway:prod
