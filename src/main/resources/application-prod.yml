@@ -5,3 +5,30 @@ eureka:
 services:
   authentication:
     url: http://authentication-service:8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: authentication-service
+          uri: http://authentication-service:8080
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/auth/(?<path>.*), /$\{path}
+
+        - id: farmrun-player-service
+          uri: http://farmrun-player-service:8080
+          predicates:
+            - Path=/farmrun/player/**
+          filters:
+            - AuthenticationFilter
+            - RewritePath=/farmrun/player/(?<path>.*), /$\{path}
+
+        - id: farmrun-item-service
+          uri: http://farmrun-item-service:8080
+          predicates:
+            - Path=/farmrun/item/**
+          filters:
+            - AuthenticationFilter
+            - RewritePath=/farmrun/item/(?<path>.*), /$\{path}

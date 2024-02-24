@@ -64,6 +64,17 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.classgraph</groupId>
+            <artifactId>classgraph</artifactId>
+            <version>4.8.139</version>
+        </dependency>
+
+        <dependency>
             <groupId>fr.stonehaven</groupId>
             <artifactId>authentication-service</artifactId>
             <version>1.0.1-SNAPSHOT</version>
@@ -93,6 +104,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <finalName>application</finalName>
                     <image>
                         <builder>paketobuildpacks/builder-jammy-base:latest</builder>
                     </image>
@@ -106,5 +118,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-grayroot</id>
+            <url>https://nexus.grayroot.eu/repository/maven-snapshots/</url>
+        </repository>
+    </distributionManagement>
 
 </project>

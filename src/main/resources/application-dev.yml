@@ -1,7 +1,35 @@
 eureka:
   client:
     service-url:
-      defaultZone : http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
+
 services:
   authentication:
     url: http://127.0.0.1:8081
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: authentication-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/auth/(?<path>.*), /$\{path}
+
+        - id: farmrun-player-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/farmrun/player/**
+          filters:
+            - AuthenticationFilter
+            - RewritePath=/farmrun/player/(?<path>.*), /$\{path}
+
+        - id: farmrun-item-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/farmrun/item/**
+          filters:
+            - AuthenticationFilter
+            - RewritePath=/farmrun/item/(?<path>.*), /$\{path}
