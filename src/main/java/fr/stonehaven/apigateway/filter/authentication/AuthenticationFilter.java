@@ -43,7 +43,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                 try {
                     //REST call to AUTH service
                     HttpEntity<String> entity = new HttpEntity<>(null, exchange.getRequest().getHeaders());
-                    String response = template.exchange(authenticationServiceUrl + "/auth/user", HttpMethod.GET, entity, String.class).getBody();
+                    String response = template.exchange(authenticationServiceUrl + "/user", HttpMethod.GET, entity, String.class).getBody();
                     UserResponse userResponse = new Gson().fromJson(response, UserResponse.class);
                     if (userResponse == null) throw new AccessForbiddenException(HttpStatus.FORBIDDEN);
 
