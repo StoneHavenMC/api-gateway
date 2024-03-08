@@ -24,7 +24,7 @@ spring:
             - Path=/player/**
           filters:
             - AuthenticationFilter
-            - RewritePath=/player, /player
+            #- RewritePath=/player, /player
             - RewritePath=/player/(?<path>.*), /player/$\{path}
 
         - id: farmrun-player-service
