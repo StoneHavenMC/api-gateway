@@ -17,6 +17,14 @@ spring:
           filters:
             - RewritePath=/auth/(?<path>.*), /$\{path}
 
+        - id: player-service
+          uri: http://player-service:8080
+          predicates:
+            - Path=/player/**
+          filters:
+            - AuthenticationFilter
+            - RewritePath=/player/(?<path>.*), /$\{path}
+
         - id: farmrun-player-service
           uri: http://farmrun-player-service:8080
           predicates:
