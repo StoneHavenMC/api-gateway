@@ -15,6 +15,9 @@ springdoc:
       - url: /v3/api-docs
         name: API Gateway Service
 
+      - url: /player/v3/api-docs
+        name: Player Service
+
       - url: /farmrun/player/v3/api-docs
         name: Farmrun Player Service
 

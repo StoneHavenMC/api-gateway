@@ -12,6 +12,7 @@ public class RouteValidator {
     public static final List<String> unsecuredEndpoints = List.of(
             "/eureka",
             "/login",
+            "/player/v3/api-docs",
             "/farmrun/player/v3/api-docs",
             "/farmrun/item/v3/api-docs"
     );
