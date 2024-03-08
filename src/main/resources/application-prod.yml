@@ -23,7 +23,7 @@ spring:
             - Path=/player/**
           filters:
             - AuthenticationFilter
-            - RewritePath=/player/(?<path>.*), /$\{path}
+            - RewritePath=/player/(?<path>.*), /player/$\{path}
 
         - id: farmrun-player-service
           uri: http://farmrun-player-service:8080
